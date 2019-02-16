@@ -1,6 +1,7 @@
 //Primer planeta !! 
 float ang;
 PImage img;
+PImage ship;
 float ang2 = random(2,10);
 
 void setup(){
@@ -11,7 +12,8 @@ void setup(){
  
  //inicializar angulo en 0
  ang=0; 
- img = loadImage("C:/Users/xoana/Desktop/Canarias-Books/Tareas CIU/space.jpg");
+ img = loadImage("./space.jpg");
+ ship = loadImage("./falcon.png"); 
 }
 
 void draw(){
@@ -38,33 +40,18 @@ pushMatrix(); //Primer planeta, amarillo
   sphere(5);
 popMatrix();
   
-  //segundo planeta
   
-pushMatrix();
- translate(180,0); 
+  
+pushMatrix(); // segundo planeta, rosa
+ translate(180,0,20); 
  rotateX(radians(7*ang)); 
  rotateY(radians(-ang));
   fill(241,91,255);
   sphere(25);
  popMatrix();
  
- pushMatrix();
-  rotate(ang*2);
-  translate(24, 0);
-  fill(50, 255, 200);
-  ellipse(0, 0, 6, 6);
-  popMatrix();
   
- //pushMatrix();
- //translate(-230,89);
- //rotateX(PI);
- //rotateY(PI);
- //fill(243,110,32);
- //sphere(40);
- //popMatrix();
-  
-  
-  // Tercer planeta
+  // Tercer planeta, planeta rojo 
   pushMatrix();
   translate(100, 100, 15);
   rotateX(radians(ang2));
@@ -72,25 +59,35 @@ pushMatrix();
   sphere(30);
   popMatrix();
 
- // Cuarto planeta
+ // Cuarto planeta, planeta verde
   pushMatrix();
-  translate(30, 10, 52);
+  translate(-230, -100,3);
   rotateX(radians(-45));
-  fill(0,29,25);
+  rotateY(radians(ang));
+  fill(148,125,100);
     sphere(30);
   popMatrix();
   
   
   //Quinto planeta
-  
-   pushMatrix();
-  translate(78, 92);
+ 
+  pushMatrix();
+  translate(378, 92,50);
   rotateX(radians(18));
-  fill(25,0,25);
-    sphere(30);
+  fill(55,95,154);
+  sphere(44);
   popMatrix();
   
 popMatrix();
+
+
+translate(mouseX-width/2,mouseY-height/2,50);
+rotateX(radians(45));
+rotateY(radians(22)) ;
+scale(0.3);
+image(ship,0,0) ;
+
+
 ang= ang+.25;
 if(ang>=360){
 ang = 0;
