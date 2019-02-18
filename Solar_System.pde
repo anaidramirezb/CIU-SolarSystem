@@ -14,14 +14,19 @@ void setup(){
  ang=0; 
  img = loadImage("./space.jpg");
  ship = loadImage("./falcon.png"); 
+ textSize(25);
+
 }
 
 void draw(){
  background(img);
+ text("In a Galaxy far far away...", 100,100);
  fill(232,132,12); //color
  translate(width/2, height/2,0);
+ pushMatrix();
+ rotateY(ang*.1);
  sphere(80);
- 
+ popMatrix();
  //rotar en X y Y para darle el efecto de movimiento
 
   pushMatrix();
@@ -80,7 +85,7 @@ pushMatrix(); // segundo planeta, rosa
   
 popMatrix();
 
-
+pushMatrix();
 translate(mouseX-width/2,mouseY-height/2,50);
 rotateX(radians(45));
 rotateY(radians(22)) ;
@@ -88,10 +93,11 @@ scale(0.3);
 image(ship,0,0) ;
 
 if(mousePressed==true){
-  translate(ship.width,0); 
+  translate(ship.width,0,2); 
   scale(-1.0,1.0); 
   image(ship,0,0); 
 }
+popMatrix();
 
 ang= ang+.25;
 if(ang>=360){
