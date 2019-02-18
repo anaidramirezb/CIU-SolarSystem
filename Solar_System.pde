@@ -87,6 +87,11 @@ rotateY(radians(22)) ;
 scale(0.3);
 image(ship,0,0) ;
 
+if(mousePressed==true){
+  translate(ship.width,0); 
+  scale(-1.0,1.0); 
+  image(ship,0,0); 
+}
 
 ang= ang+.25;
 if(ang>=360){
